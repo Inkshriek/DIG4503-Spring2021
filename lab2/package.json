@@ -1,0 +1,24 @@
+{
+  "name": "dig4503-spring2021",
+  "version": "1.0.0",
+  "description": "Template for DIG4503-0077 Spring 2021",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Inkshriek/DIG4503-Spring2021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Inkshriek/DIG4503-Spring2021/issues"
+  },
+  "homepage": "https://github.com/Inkshriek/DIG4503-Spring2021#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.0"
+  },
+  "type": "module"
+}
