@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import Pokemon from './Pokemon.js';
+import Preview from './Preview.js';
 
 class Search extends React.Component {
     constructor(props) {
@@ -18,12 +18,15 @@ class Search extends React.Component {
 
     search = () => {
         if (this.state.text == "") {
-            return;
+            return; 
         }
         axios('https://pokeapi.co/api/v2/pokemon/' + this.state.text)
         .then( (response) => {
             this.setState({pokemon: response.data});
             this.setState({found: true});
+            if (this.props.onChange) {
+                this.props.onChange(this.state);
+            }
         })
         .catch( error => this.setState({found: false}))
     }
@@ -34,7 +37,7 @@ class Search extends React.Component {
                 <input type="text" value={this.state.text} onChange={this.textbox} />
                 <button onClick={this.search}>Search</button>
                 {this.state.found ? (
-                    <Pokemon pokemon={this.state.pokemon}/>
+                    <Preview pokemon={this.state.pokemon}/>
                 ) : (
                     <p>Not found!</p>
                 )}
