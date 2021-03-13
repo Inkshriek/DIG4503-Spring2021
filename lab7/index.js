@@ -41,7 +41,7 @@ App.get('/search/:name', function(req, res) {
     let search = req.params.name;
     let found = [];
     names.forEach((item, index) => {
-        if (item.includes(search)) found.push(item);
+        if (item.toLowerCase().includes(search.toLowerCase())) found.push(item);
     });
 
     if (found.length != 0) {
