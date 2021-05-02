@@ -50,12 +50,31 @@ class PokemonTeam extends React.Component {
         .catch( error => this.setState({valid: false}))
     }
 
+    refresh = () => {
+        Axios.get('http://localhost:45030/pokemon/' + this.state.team)
+        .then( (res) => {
+            if (Array.isArray(res.data.pokemon)) {
+                this.setState({teamlist: res.data.pokemon});
+                this.setState({valid: true});
+            }
+            else {
+                this.setState({valid: false});
+            }
+
+            if (this.props.onChange) {
+                this.props.onChange(this.state);
+            }
+        })
+        .catch( error => this.setState({valid: false}))
+    }
+
     render() {
         //This should find your team from the MongoDB database and display them all.
         return( 
             <div>
                 <h1>Your Team</h1> 
                 <input type="number" min="1" max="9" value={this.state.team} onChange={this.number} placeholder="Team"/>
+                <button onClick={this.refresh}>Refresh</button>
 
                 { this.state.valid ? 
                 

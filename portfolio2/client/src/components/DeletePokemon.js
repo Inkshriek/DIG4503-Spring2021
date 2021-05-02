@@ -51,8 +51,8 @@ class DeletePokemon extends React.Component {
                 <h1>Delete Pokemon</h1> 
                 <input type="text" value={this.state.ID} onChange={this.text} placeholder="Pokémon ID"/>
                 <input type="number" min="1" max="9" value={this.state.team} onChange={this.number} placeholder="Team"/>
-
                 <button onClick={this.delete}>Delete</button>
+                
                 {this.state.deleted ? (
                     <p>This Pokémon was deleted from Team {this.state.team}.</p>
                 ) : (
